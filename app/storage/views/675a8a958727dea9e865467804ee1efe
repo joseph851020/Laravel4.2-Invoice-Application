@@ -1,0 +1,15 @@
+ 
+	<?php $__env->startSection('content'); ?>
+	  
+	<p>Hello, <p/>
+ 
+	<p>This email is a confirmation of your payment on Invoice <?php echo $tenant_invoice_id; ?> to <?php echo $company_name; ?>.</p>
+	
+	<p>If you have queries please contact: <?php echo $company_email; ?></p>
+ 
+ 	 <br /><br /><br />
+	 <small>Processed via <a href="http://www.sighted.com">sighted.com</a></small>
+ 
+	<?php $__env->stopSection(); ?>
+ 
+<?php echo $__env->make('layouts.payment_notification', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

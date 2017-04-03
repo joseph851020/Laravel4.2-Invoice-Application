@@ -1,0 +1,37 @@
+.receipt_cover{ 
+	 background: #fff url('../../../assets/img/bg_mail.png') repeat-x; background-position:top center;
+	font-family: 'PT Sans', sans-serif;
+	border:2px dashed #efefef; padding : 15px !important; margin-bottom:25px;
+ }
+
+.for_logo img{width:auto; height:70px; text-align:right;}
+
+.receiptpage p{font-size:1em; line-height:1.4em;}
+
+h1, h2, h3, h4{font-weight:normal; padding:10px; font-family: 'PT Sans', sans-serif;}
+
+.toparea{overflow: hidden; height:100px; margin-bottom:24px; padding-bottom:50px; border-bottom:1px dotted #ddd;}
+.addr{float:left; width:200px;}
+.for_logo{float:right; width:200px; padding-top:20px;}
+
+.addr p span{font-size:0.8em !important; line-height:1.1em; color:#777; }
+
+
+h1{font-weight:300; font-size:23px; margin: 30px 0 10px 0; letter-spacing:2px; color:#444; text-align:center; text-transform:uppercase; background: #eee; border:1px solid #f7f7f7;}
+
+
+h3{font-weight:300; font-size:19px; color:#444; text-align:center; }
+
+h3 .amount{display: block; color:#111; font-size:40px; margin-bottom:5px; }
+
+p.received_from{text-align:center; font-size:17px; line-height:24px;}
+
+#foot{text-align:center; font-size:20px; color:#444; border-bottom:1px solid #efefef;}
+
+#foot h4{display: block; color:#111; font-size:17px; margin-bottom:5px; text-align:center; }
+#foot p{text-align:center; font-size:14px; line-height:20px;}
+
+
+#signature{}
+
+#signature p{text-align:center; font-size:14px; line-height:20px;}

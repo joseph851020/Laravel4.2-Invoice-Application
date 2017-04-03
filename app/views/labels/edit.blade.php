@@ -1,0 +1,1 @@
+/Users/moses/Sites/allnewintegrity/app/views/labels/edit.blade.php

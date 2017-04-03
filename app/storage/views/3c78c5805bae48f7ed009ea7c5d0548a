@@ -1,0 +1,12 @@
+  <?php $__env->startSection('content'); ?>
+	 <div class="for_report">
+	 <h1 class=""><a class="do_previous" href="<?php echo URL::to('dashboard'); ?>">&nbsp;<i class="fa fa-home">&nbsp;</i></a>&raquo; 404. Uh Oh... Somethng went wrong!</h1>
+	 
+	 <p> We're sorry the page you're looking for doesn't exist. </p>
+	 
+	 <p>Check out our <a class="ordinary_link2" href="<?php echo URL::to('help'); ?>">Help Center</a> for help, or head to <a class="ordinary_link2" href="<?php echo URL::to('dashboard'); ?>">dashboard</a>.</p>
+	  
+	</div><!-- End for_report -->
+  <?php $__env->stopSection(); ?>
+ 
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,23 @@
+<?php echo $__env->make('layouts/adminheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+ 
+   	
+	<?php if(Session::get('flash_message')): ?>
+		<div class="flash success"><?php echo Session::get('flash_message'); ?></div>
+	<?php endif; ?>
+	
+	<?php if(Session::get('failed_flash_message')): ?>
+		<div class="flash error"><?php echo Session::get('failed_flash_message'); ?></div>
+	<?php endif; ?>
+	
+	<?php echo $__env->yieldContent('content'); ?>
+
+
+</div>  <!-- End panel -->   
+  
+ </div> <!-- End pagebody -->
+ 		
+ 
+<?php echo $__env->make('layouts/adminmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+   
+<?php echo $__env->make('layouts/adminfooter', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>	
+       

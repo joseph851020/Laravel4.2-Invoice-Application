@@ -1,0 +1,85 @@
+	<?php $__env->startSection('content'); ?>
+	 
+	  <h1>Admin Repert Summary</h1>
+	  
+	  <div class="dashcover">
+	  	
+		  <div class="stats">
+
+              		<div id="all_subscription_volume">
+
+              		</div><!-- END all_subscription_volume -->
+
+              		<div id="all_subscription_this_month">
+
+              		</div><!-- END all_subscription_volume -->
+		   </div><!-- END Stats -->
+			
+	  </div><!-- END dashcover -->
+			 
+	<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('footer'); ?>
+
+<script src="<?php echo URL::asset('assets/js/highchart/highcharts.js'); ?>"></script>
+<script src="<?php echo URL::asset('assets/js/highchart/highcharts-3d.js'); ?>"></script>
+<script src="<?php echo URL::asset('assets/js/highchart/modules/exporting.js'); ?>"></script>
+
+<script>
+
+   $('#all_subscription_volume').highcharts
+   ({
+   	chart: {
+            type: 'line'
+        },
+        title:
+        {
+            text: 'Monthly Users'
+        },
+        subtitle:
+        {
+            text: 'From Last 6 Months'
+        },
+              xAxis:
+       {
+         categories: [ <?php echo $income_and_expenses['last5months']['monthtitle']; ?> , <?php echo $income_and_expenses['last4months']['monthtitle']; ?> ,<?php echo $income_and_expenses['last3months']['monthtitle']; ?> , <?php echo $income_and_expenses['last2months']['monthtitle']; ?> 			, <?php echo $income_and_expenses['lastmonth']['monthtitle']; ?> , <?php echo $income_and_expenses['thismonth']['monthtitle']; ?> ]
+    },
+	yAxis:
+	{
+	    opposite: false,
+	    title:
+	    {
+	        text: 'Count'
+	    },
+	    min: 0
+	},
+	legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+	series: 
+        [{
+            name: 'Free User',
+            data: [ <?php echo $income_and_expenses['last5months']['monthstart']; ?> , <?php echo $income_and_expenses['last4months']['monthstart']; ?> , <?php echo $income_and_expenses['last3months']['monthstart']; ?> , <?php echo $income_and_expenses['last2months']['monthstart']; ?> , 		<?php echo $income_and_expenses['lastmonth']['monthstart']; ?> , <?php echo $income_and_expenses['thismonth']['monthstart']; ?> ]
+        }, 
+        {
+            name: 'Premium User',
+                data: [ <?php echo $income_and_expenses['last5months']['monthpremium']; ?> , <?php echo $income_and_expenses['last4months']['monthpremium']; ?> , <?php echo $income_and_expenses['last3months']['monthpremium']; ?> , <?php echo $income_and_expenses['last2months']['monthpremium']; ?> , <?php echo $income_and_expenses['lastmonth']['monthpremium']; ?> , <?php echo $income_and_expenses['thismonth']['monthpremium']; ?> ]
+        },
+        
+        {
+            name: 'Super Premium User',
+            data: [ <?php echo $income_and_expenses['last5months']['monthsuperpremium']; ?> , <?php echo $income_and_expenses['last4months']['monthsuperpremium']; ?> , <?php echo $income_and_expenses['last3months']['monthsuperpremium']; ?> , <?php echo $income_and_expenses['last2months']['monthsuperpremium']; ?> , <?php echo $income_and_expenses['lastmonth']['monthsuperpremium']; ?> , <?php echo $income_and_expenses['thismonth']['monthsuperpremium']; ?> ]
+        }
+             
+        ]
+    });
+
+</script>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

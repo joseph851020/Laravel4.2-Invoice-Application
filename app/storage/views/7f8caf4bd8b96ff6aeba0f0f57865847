@@ -1,0 +1,68 @@
+	<?php $__env->startSection('content'); ?>
+	 
+	 <h1><a class="do_previous" href="<?php echo URL::to('dashboard'); ?>">&nbsp;<i class="fa fa-home">&nbsp;</i></a> &raquo; <a href="<?php echo URL::to('help'); ?>">Help</a> &raquo; Contact Us </h1>
+	 <div class="more_space" class="group">
+	   
+	   <p> We will greatly appreciate your feedback to improve our system. If you have any problems please let us know. </p>
+	 
+	    <?php echo Form::open(array('url' => 'support/send', 'method' => 'POST')); ?>
+
+		 
+		 
+		 <?php if($errors->has()): ?>
+		<ul>
+			<?php echo $errors->first('feedback_type', '<li>:message</li>'); ?>
+
+			<?php echo $errors->first('issues', '<li>:message</li>'); ?>
+
+		</ul>
+		<?php endif; ?>  
+	
+			<label>Subject / title<span class="mand">*</span></label>
+	            <input type="text" name="subject" class="txt" id="bug_subject" value="<?php echo Input::old('subject'); ?>" />
+	         <label>Type: Issue / Feature request <span class="mand">*</span></label>
+	            <select id="" name="feedback_type" class="sel">
+	            	<option value="">-- please select --</option>
+	            	<option value="Problem reporting">Problem(s)</option>
+	                <option value="Feature request">Feature request</option>	                            
+	            </select>
+	        <label>Prority</label>
+	            <select id="priority" name="priority" class="sel">
+	            	<option value="">-- please select --</option>
+	                <option value="high">High</option>
+	                <option value="medium">Medium</option>
+	                <option value="low">Low</option>                 
+	            </select>
+	       <label>Description <span class="mand">*</span></label>
+	            <textarea id="bug_description" name="issues" class="txtarea"><?php echo Input::old('issues'); ?></textarea><br />
+	
+	        <input type="submit" id="send_feedback" class="gen_btn" name="send_feedback" value="Send" />  
+	          <?php echo $__env->make('common.mandatory_field_message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	     <?php echo Form::close(); ?>
+
+	  
+	</div><!-- END for_help -->
+	  
+
+<?php $__env->stopSection(); ?>
+	
+
+<?php $__env->startSection('footer'); ?>
+
+	<script>
+	
+		$(function(){
+		 
+		 	 if($('#appmenu').length > 0){
+				    
+				    $('.more_all_menu').addClass('selected_group'); 		 
+			  		$('.menu_help').addClass('selected');		  		
+			  		$('.more_all_menu ul').css({'display': 'block'});
+			  }
+		 
+		});
+		
+	</script>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

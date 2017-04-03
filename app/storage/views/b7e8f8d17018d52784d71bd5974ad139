@@ -1,0 +1,53 @@
+	<?php $__env->startSection('content'); ?>
+	
+	  <h1><a class="do_previous" href="<?php echo URL::to('dashboard'); ?>">&nbsp;<i class="fa fa-home">&nbsp;</i></a>&raquo; Import services</h1>
+	 
+	  <?php echo Form::open(array('url' => 'services/process_import', 'files' => true)); ?>
+
+	  
+	  	
+	  	<?php if($errors->has()): ?>
+	  	  <div class="flash error">
+			<ul>
+				<?php echo $errors->first('file', '<li>:message</li>'); ?>
+
+			</ul>
+		  </div>
+		<?php endif; ?> 
+	   
+	   <div id="import">
+	        <div class="longbox">
+	            <label>File:
+	            <span class="small">(Must be a CSV file and in the correct format as shown in the example template)</span>
+	            </label>	            
+	            <?php echo Form::file('itemscsv'); ?>
+
+	            
+	            <input type="submit" id="importservice" class="gen_btn" name="importservice" value="Upload file" />
+	             <br /><a class="alink" href="<?php echo URL::asset('sample_data/services.csv'); ?>">Download services csv template</a>
+	        	 
+	        </div><!-- END LONG BOX -->
+	      </div><!-- END company logo  -->
+	
+	<?php echo Form::close(); ?>  
+   <?php $__env->stopSection(); ?>
+   
+
+	<?php $__env->startSection('footer'); ?>
+	
+	 <script>
+	
+		$(document).ready(function(){
+			
+			if($('#appmenu').length > 0){
+		 		$('.manage_all_menu').addClass('selected_group'); 		 
+		  		$('.menu_all_services').addClass('selected');		  		
+		  		$('.manage_all_menu ul').css({'display': 'block'});
+		 	}
+			 
+		});
+		
+	</script>
+ 
+	<?php $__env->stopSection(); ?>	
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

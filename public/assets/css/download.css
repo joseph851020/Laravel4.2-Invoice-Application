@@ -1,0 +1,130 @@
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+/*
+::-moz-selection {
+    background: #CE3130;
+    text-shadow: none;
+    color: #fff !important;
+}
+
+::selection {
+    background: #CE3130;
+    text-shadow: none;
+    color: #fff !important;
+}
+*/
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   IIV styles
+   ========================================================================== */
+
+.makeRed{ color:#c12a2c; }
+.makeGreen{color: #06a706; }
+
+/*  TABLE PROFIT AND LOSS  */
+
+.date_cover{overflow: hidden; width:99%;}
+.start_side{float:left; margin-right:30px; width:270px;}
+.end_side{float:left; width:270px;}
+
+.period{padding:10px;}
+.period h4{font-weight:600;}
+
+table.pl_table{
+	 margin-bottom: 6px; 
+    font-family: 'Lato', 'HelveticaNeueW01-45Ligh',Helvetica,Arial,'Lucida Grande',sans-serif;
+    color: #555;   
+    font-size: 1em;
+    line-height: 1;
+    margin-bottom: 12px;     
+    font-weight: 400;     
+    min-height: 30px;
+    width:100%;   
+    vertical-align: middle;   
+    -webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px; 
+	outline:none;	
+}
+
+table.pl_table h3{font-weight:600;}
+
+table.pl_table tr{
+	
+}
+
+.thick_line{ border-top: 3px solid #111;}
+
+table.pl_table td{
+    line-height: 1.42857;
+    padding: 8px;
+    vertical-align: top !important; font-size:0.9em;
+    border-top: 1px dashed #555;
+    text-align:left;     
+}
+
+
+tr.thick_line2{
+	border-top: 4px solid #333;
+	padding-top:15px !important;
+}
+
+table.pl_table td.expense_breakdown{padding-left:20px; border-bottom:1px dashed #555 !important; text-align:left;}
+

@@ -1,0 +1,46 @@
+	<?php $__env->startSection('content'); ?>
+	 
+	  <h1><a class="do_previous" href="<?php echo URL::to('dashboard'); ?>">&nbsp;<i class="fa fa-home">&nbsp;</i></a>&raquo; <a href="<?php echo URL::to('company'); ?>">Business Profile</a> &raquo; logo</h1>
+	 
+	  <?php echo Form::open(array('url' => 'company/uploadlogo', 'files' => true)); ?>
+
+	  
+	  	
+  	<?php if($errors->has()): ?>
+  	  <div class="flash error">
+		<ul>
+			<?php echo $errors->first('file', '<li>:message</li>'); ?>
+
+		</ul>
+	  </div>
+	<?php endif; ?> 
+	   
+	   <div id="company_logo">
+	   	
+	   	<div class="thelogo">
+	   		
+	   		<?php  $tenantID = Session::get('tenantID'); $ext = '.png'; $logo_file =  public_path(). '/te_da/'.$tenantID . '/'.$tenantID.$ext; ?>
+			 
+			<?php if(file_exists($logo_file)): ?>					 
+				 <img class="gen_logo_size" src="<?php echo Config::get('app.app_main_domain').'/te_da/'.$tenantID.'/'.$tenantID.'.png'; ?>" alt="" />
+			<?php endif; ?>			
+	   		
+	   	</div><!-- END thelogo -->
+	   	
+        <div class="longbox">
+        	
+            <label>Logo file: </label>	            
+            <?php echo Form::file('file'); ?>
+
+            
+            <p><span class="small">(For best result use pixel dimensions of 500px (width) and 250px (height). Smaller size will also be uploaded.  JPG or PNG are the acceptable formats) </span></p>
+            <input type="submit" id="uploadlogo" class="gen_btn" name="uploadlogo" value="Upload" />
+        	 
+        </div><!-- END LONG BOX -->
+        
+	  </div><!-- END company logo  -->
+	
+	<?php echo Form::close(); ?>  
+			 
+	<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

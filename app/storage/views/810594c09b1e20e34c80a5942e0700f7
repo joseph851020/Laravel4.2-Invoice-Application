@@ -1,0 +1,11 @@
+	<?php $__env->startSection('email_title'); ?>
+	 <h3>New user found Sighted via: <?php echo $found_integrity; ?> </h3>
+	<?php $__env->stopSection(); ?>
+
+	<?php $__env->startSection('content'); ?>
+	  
+	 <p>Nice!</p>
+	
+	<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.sendmail', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

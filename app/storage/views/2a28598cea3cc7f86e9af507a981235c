@@ -1,0 +1,43 @@
+	
+	<?php $__env->startSection('content'); ?>
+	<div id="login_form">
+	<a href="<?php Config::get('app.app_domain') ?>"><img src="<?php echo URL::asset('integritylogo.png'); ?>" width="150" height="100" alt="Sighted Invoice" ></a>
+	<h1>Reset Your Password Now</h1>
+	
+	<?php if(Session::get('flash_message')): ?>
+		<div class="flash success"><?php echo Session::get('flash_message'); ?></div>
+	<?php endif; ?>
+	
+	<?php if(Session::get('failed_flash_message')): ?>
+		<div class="flash error"><?php echo Session::get('failed_flash_message'); ?></div>
+	<?php endif; ?>
+	 
+		<?php echo Form::open(array('url' => URL::to('passwordresets/reset', array(Request::segment(3), Request::segment(4))))); ?> 		
+ 		<?php echo Form::hidden('token', Request::segment(4)); ?>
+
+		 
+		<p><?php echo Form::label('email', 'Email Address'); ?><br />
+		 <?php echo Form::text('email', null, array('required' => true)); ?></p>
+		
+		<!-- password field -->
+		<p><?php echo Form::label('password', 'New Password'); ?><br />
+		 <?php echo Form::password('password'); ?></p>
+		 
+		 <!-- password field -->
+		<p><?php echo Form::label('password_confirmation', 'Password Confirmation'); ?><br />
+		 <?php echo Form::password('password_confirmation'); ?></p>
+		 
+		<!-- submit button -->
+		<p><?php echo Form::submit('Create New Password', array('class' => 'btn')); ?></p>
+		
+		<!-- check for login errors flash var -->
+		 
+	 
+
+	 <?php echo Form::close(); ?>
+
+ 
+	</div>
+ 
+	<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

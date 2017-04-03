@@ -1,0 +1,14 @@
+ 
+	<?php $__env->startSection('content'); ?>	 
+		<h1><a class="do_previous" href="<?php echo URL::to('dashboard'); ?>">&nbsp;<i class="fa fa-home">&nbsp;</i></a>&raquo; An Error Occured.</h1>
+  	    <?php if(Session::get('failed_flash_message')): ?>
+		<div class="flash error"><?php echo Session::get('failed_flash_message'); ?></div>
+		<?php endif; ?>
+	<?php $__env->stopSection(); ?>
+	
+
+<?php $__env->startSection('footer'); ?>
+ 
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.signup', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

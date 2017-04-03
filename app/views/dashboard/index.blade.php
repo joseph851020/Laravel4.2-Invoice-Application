@@ -1,0 +1,225 @@
+@extends('layouts.default')
+
+	@section('page_specific_css')
+		<link rel="stylesheet" href="/assets/css/magnific-popup.css">
+	@stop
+
+	@section('content')
+	
+	<!-- REMEMBER IF EMAIL HAS NOT BEEN VERIFIED -->
+<?php
+if($tenant_email_verified == 0): ?>
+
+	<?php if(!Session::has('remove_tenant_verify')): ?>
+	<div id="tenant_verify">
+		<p>Hi {{ Session::get('firstname') }}, <?php if(Session::get('thank_you_for_signing_up')){ echo Session::get('thank_you_for_signing_up'); } ?> <?php if(Session::get('thank_you_for_signing_up')){ echo 'W'; }else{ echo 'w'; } ?>hen you're free kindly verify your email. Unverified accounts are deleted after five days. 
+		   If you didn't receive any email please <a href="{{ URL::to('support') }}">click here</a> to let us know or <a href="{{ URL::to('resend_account_verification_mail') }}">Resend confirmation mail</a></p>
+		   <p><span class=""><a class="close_verification_message" href="{{ URL::to('dashboard') }}"><i class="fa fa-minus-circle"></i> Remind me later</a></span><p>
+	</div><!-- END tenant_verify -->
+	
+	<?php endif; ?>
+	
+<?php endif; ?>
+
+
+<?php if($firsttimer == 1):?>
+	<div class="newuser">
+		<h1 class="thin light">Welcome to Sighted</h1>
+		<p>To help you get started click on the Getting Started button below  <br />
+		 <!-- Need to talk to us? Call: +44(0)20 3318 4964  or Email: <a class="support" href="{{ URL::to('support') }}">support@sighted.com</a> -->
+		 </p>
+		<div class="first_welcome">
+			<a class="getting_started_link bigButton first_float welcome_video_link" href="http://vimeo.com/104409267">Welcome Video <span class="">Quick Tour</span></a>
+	        <a class="getting_started_link bigButton first_float" href="{{ URL::route('getting-started') }}">Getting Started <span class="">Quick Start Guide</span></a>	        
+	    </div><!-- END first_welcome -->
+	    <a class="icon-close newuser-close"><i class="fa fa-power-off"></i> Hide. I'm through with this.</a>
+	</div><!-- END firsttimer -->
+<?php endif; ?>
+
+		 <!-- REMEMBER FIRST TIME USER MESSAGE HERE -->
+
+    	   <div id="invoice_expense_yearly">
+
+		   </div><!-- END invoice_expense_yearly -->
+    	  
+			<ul class="overall_stats">
+
+                <li class="summary_stats">
+                	
+                	<div class="">
+                        <h3><?php echo IntegrityInvoice\Utilities\AppHelper::dumCurrencyCode($preferences->currency_code)."".number_format($calculated["total_expenses_value"], 2, '.', ','); ?></h3>
+                        <small><a class="dash_ordinary_link" href="{{ URL::to('expenses') }}">Expenses</a></small>
+                        <span class="stat_value">{{ $count_data['total_expenses'] }} transaction<?php echo $count_data['total_expenses'] != 1 ? "s" : ""; ?></span>
+                    </div>
+                    
+                	<div class="">
+                    	<h3><?php echo IntegrityInvoice\Utilities\AppHelper::dumCurrencyCode($preferences->currency_code)."".number_format($calculated["total_invoices_value"], 2, '.', ','); ?></h3>
+                        <small><a class="dash_ordinary_link" href="{{ URL::to('invoices') }}">Invoiced</a></small>
+                        <span class="stat_value">{{ $count_data['total_invoices'] }} transaction<?php echo $count_data['total_invoices'] != 1 ? "s" : ""; ?></span>
+                        <span class="stat_small_value"><?php echo IntegrityInvoice\Utilities\AppHelper::dumCurrencyCode($preferences->currency_code)."".number_format($calculated["total_invoices_unpaid_value"], 2, '.', ','); ?> outstanding </span>
+                    </div>
+                     
+                    <div class="last">
+                        <h3><?php echo IntegrityInvoice\Utilities\AppHelper::dumCurrencyCode($preferences->currency_code)."".number_format($calculated["total_payments_value"], 2, '.', ','); ?></h3>
+                        <small>Revenue</small> 
+                        <span class="stat_value">from paid invoices<br />{{ $count_data['total_payments'] }} transaction<?php echo $count_data['total_payments'] != 1 ? "s" : ""; ?></span>   
+                    </div>                         
+                 </li><?php $pl_amount = $calculated["total_payments_value"] - $calculated["total_expenses_value"];
+				 		$plnegative_value = false;
+				 		
+						if($pl_amount < 0){
+							$plnegative_value = true;
+							//$pl_amount = (int)str_replace('-', '', $pl);
+							$pl_amount = 0 - $pl_amount;
+						}
+					 
+				  ?>
+                 	
+                 <li>
+                 	<h3>Profit / Loss = <span class="<?php echo $calculated["total_payments_value"] - $calculated["total_expenses_value"] < 0 ? "makeRed" : "makeGreenI";  ?>"><?php echo $plnegative_value == true ? "-" : ""; ?><?php echo IntegrityInvoice\Utilities\AppHelper::dumCurrencyCode($preferences->currency_code)."".number_format($pl_amount, 2, '.', ','); ?></span></h3>
+                 	<p class="makeCenter infoAboutStats">Income is based on payment received on invoices</p>
+                 </li>
+               
+                 <li class="summary_counts">
+                    <div class="">
+                        <h4>{{ $count_data['total_clients'] }}</h4>
+                        <small><a class="ordinary_link" href="{{ URL::to('clients') }}">Client<?php echo $count_data['total_clients'] != 1 ? "s": ""; ?></a></small>
+                    </div>
+                    
+                     <div class="">
+                        <h4>{{ $count_data['total_merchants'] }}</h4>
+                        <small><a class="ordinary_link" href="{{ URL::to('merchants') }}">Merchant<?php echo $count_data['total_merchants'] != 1 ? "s": ""; ?></a></small>
+                    </div>
+
+                     <div>
+                         <h4>{{ $count_data['total_services'] }}</h4>
+                         <small><a class="ordinary_link" href="{{ URL::to('services') }}">Service<?php echo $count_data['total_services'] != 1 ? "s": ""; ?></a></small>
+                     </div>
+                    
+                     <div>
+                        <h4>{{ $count_data['total_products'] }}</h4>
+                        <small><a class="ordinary_link" href="{{ URL::to('products') }}">Product<?php echo $count_data['total_products'] != 1 ? "s": ""; ?></a></small>
+                    </div>
+
+                </li>
+                
+            </ul>
+            
+            
+            <div class="quick_analytics">
+  
+			<div class="notification_area">
+			 
+	          <?php if( $total_unpaid > 0 || $total_part_paid > 0 ): ?>				 
+            
+            	<?php 
+            			$updaid_params = array('filter' => 'unpaid');
+						$partpaid_params = array('filter' => 'part_paid');										 
+						
+						$unpaid_url = URL::route('invoices', array('filter' => 'unpaid'));
+						$partpaid_url = URL::route('invoices', array('filter' => 'partpaid'));
+					 
+            	?>
+                <h4>You have <?php if( $total_unpaid > 0): ?><a href="{{ $unpaid_url }}">{{ $total_unpaid }} unpaid invoice{{ $total_unpaid == 0 || $total_unpaid > 1 ? 's' : '' }}</a><?php endif; ?>  
+                	<?php if( $total_part_paid > 0): ?> <span> - </span><a href="{{ $partpaid_url }}">{{ $total_part_paid }} part-paid invoice{{ $total_part_paid > 1 ? 's' : '' }}</a><?php endif; ?> </h4>
+                <p>Send reminder or record payment if paid.</p>
+           
+             <?php endif; ?> 
+                       
+          </div>  
+        
+  </div><!-- END Analytics -->
+ 
+  @stop
+  
+  
+  @section('footer')
+  
+  <script src="/assets/js/highchart/highcharts.js"></script>
+  <script src="/assets/js/highchart/highcharts-3d.js"></script> 
+  <script src="/assets/js/highchart/modules/exporting.js"></script>  
+  <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+  
+ <a class="no-attachment-icon" href="https://viglink.go2cloud.org/aff_l?offer_id=435&adv_sub=SUB_ID" target="_blank" rel="nofollow noreferrer"><img src="https://viglink.go2cloud.org/aff_l?offer_id=435&adv_sub=SUB_ID" width="1" height="1"></a>
+	<script>
+	
+		$(function(){
+		 
+		 	 if($('#appmenu').length > 0){				  		 
+				  
+		  		  $('.home_menu').addClass('selected_group'); 		 
+		  		  $('.menu_dashboard').addClass('selected');		  		
+		  	 
+			 }		
+			  
+			  
+			 $('#invoice_expense_yearly').highcharts({
+		        chart: {
+		            type: 'column',
+		            margin: 75,
+		            options3d: {
+						enabled: true,
+		                alpha: 10,
+		                beta: 25,
+		                depth: 70
+		            }
+		        },
+		        title: {
+		            text: ''
+		        },
+		        subtitle: {
+		            text: 'Income and Expenses - Last 6 Months'
+		        },
+		        plotOptions: {
+		            column: {
+		                depth: 12
+		            }
+		        },
+		        xAxis: {
+		             categories: [ {{ $income_and_expenses['last5months']['monthtitle'] }} , {{ $income_and_expenses['last4months']['monthtitle'] }} ,{{ $income_and_expenses['last3months']['monthtitle'] }} , {{ $income_and_expenses['last2months']['monthtitle'] }} , {{ $income_and_expenses['lastmonth']['monthtitle'] }} , {{ $income_and_expenses['thismonth']['monthtitle'] }} ]
+		        },
+		        yAxis: {
+		            opposite: false,
+		             title: {
+	                    text: 'Total'
+	                }
+		        },
+	            tooltip: {
+	                valuePrefix: '{{ $cur_symbol }}'
+	            },
+		        series: [{
+		            name: 'Expenses',
+		            data: [ {{ $income_and_expenses['last5months']['monthexpense'] }} , {{ $income_and_expenses['last4months']['monthexpense'] }} , {{ $income_and_expenses['last3months']['monthexpense'] }} , {{ $income_and_expenses['last2months']['monthexpense'] }} , {{ $income_and_expenses['lastmonth']['monthexpense'] }} , {{ $income_and_expenses['thismonth']['monthexpense'] }} ],
+		            color: '#c5e0e9'
+		        }, {
+		            name: 'Income',
+		            data: [ {{ $income_and_expenses['last5months']['monthincome'] }} , {{ $income_and_expenses['last4months']['monthincome'] }} , {{ $income_and_expenses['last3months']['monthincome'] }} , {{ $income_and_expenses['last2months']['monthincome'] }} , {{ $income_and_expenses['lastmonth']['monthincome'] }} , {{ $income_and_expenses['thismonth']['monthincome'] }} ],
+		            color: '#e0ebaf'
+		        }]
+		    });	 
+		    
+		   
+		  // Welcome Video
+		  $('.welcome_video_link').magnificPopup({
+			  type: 'iframe',  
+			  iframe: {
+			     markup: '<div class="mfp-iframe-scaler">'+
+			                '<div class="mfp-close"></div>'+
+			                '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
+			                '<div class="mfp-title"></div>'+
+			              '</div>'
+			  },
+			  callbacks: {
+			    markupParse: function(template, values, item) {
+			     values.title = item.el.attr('title');
+			    }
+			  }
+			 
+		  });
+	  
+	    
+     });
+		
+	</script>
+		
+@stop

@@ -1,0 +1,1 @@
+/Users/moses/Sites/allnewintegrity/app/views/appglobalsettings/index.blade.php

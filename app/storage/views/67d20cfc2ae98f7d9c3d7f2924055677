@@ -1,0 +1,10 @@
+	<?php $__env->startSection('email_title'); ?>
+	 <h3> <?php echo $email_subject; ?></h3>
+	<?php $__env->stopSection(); ?>
+
+	<?php $__env->startSection('content'); ?>
+		<?php echo $email_body; ?>
+
+	 
+	<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.sendmail', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

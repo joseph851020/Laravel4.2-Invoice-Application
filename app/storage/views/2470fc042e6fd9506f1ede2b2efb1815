@@ -1,0 +1,198 @@
+	<?php $__env->startSection('content'); ?>
+ 	
+ 	<?php use IntegrityInvoice\Utilities\AppHelper; ?>
+ 	
+ <h1><a class="do_previous" href="<?php echo URL::to('dashboard'); ?>">&nbsp;<i class="fa fa-home">&nbsp;</i></a>&raquo; <a class="" href="<?php echo URL::to('invoices'); ?>">Invoices</a> &raquo; <a class="to_all" href="<?php echo URL::to('invoices/'.$invoice->tenant_invoice_id); ?>"><?php echo AppHelper::invoiceId($invoice->tenant_invoice_id); ?></a> &raquo; Payments</h1>
+
+<input type="hidden" name="date_format" class="date_format" value="<?php echo $preferences->date_format; ?>" />
+	<div id="record_payment_form">
+			
+	    <div class="longbox-left">
+	    	
+		<?php echo Form::open(array('url' => 'payments/'.$invoice->tenant_invoice_id.'/store', 'method' => 'POST')); ?>
+
+	        
+	     <?php if($total_payment >= $invoice->balance_due): ?>
+	     	<!--
+	        <h2>Overview</h2>	
+	      	<p>Full payment has been recorded for this invoice <br /><br /><a class="button" href="<?php echo URL::to('payments/'.$invoice->tenant_invoice_id.'/send'); ?>">Send receipt</a>
+	      		<br /><br /><a class="button" href="<?php echo URL::to('payments/'.$invoice->tenant_invoice_id.'/download'); ?>">Download receipt</a>
+	      	</p> -->
+		 <?php else: ?>		 	
+		 	<?php if($total_payment < $invoice->balance_due): ?><p>[ Total due: <?php echo AppHelper::dumCurrencyCode($invoice->currency_code).number_format($invoice->balance_due, 2, '.', ','); ?> ]<br /> 
+		 		[ Total paid to date: <?php echo AppHelper::dumCurrencyCode($invoice->currency_code); ?><?php  if($total_payment != 0) {echo $total_payment;}else{ echo 0;} ?>  ]<br />
+		 		[ Outstanding: <?php echo AppHelper::dumCurrencyCode($invoice->currency_code).number_format($invoice->balance_due  - $total_payment, 2, '.', ','); ?> ] <br /><br />
+		 		<?php if($invoice->status == 1): ?>
+		 		<a class="button" href="<?php echo URL::to('invoices/'.$invoice->tenant_invoice_id.'/reminder'); ?>">Send reminder</a></p>
+		 		<?php endif; ?>
+	    	<?php endif; ?>
+	    	
+	    	 <h2>Record new payment</h2>
+	    	 
+	    	<?php if($invoice->status == 1): ?>
+		 	 <input type="hidden" name="tenant_invoice_id" class="txt" id="tenant_invoice_id" value="<?php echo $invoice->tenant_invoice_id; ?>" />
+	       <label>Date of payment<span></span></label>
+	            <input type="text" name="date" class="txt" id="issuedate" autocomplete="off" />	
+	            
+	       <?php $dateformat ="d/m/Y";
+					// British dateformat
+					if($preferences->date_format == "dd/mm/yyyy"){ $dateformat ="d/m/Y"; }
+					
+					// America dateformat
+					if($preferences->date_format == "mm/dd/yyyy"){ $dateformat = "m/d/Y"; }	?>	
+	            <input type="hidden" class="pref_dateformat" value="<?php echo $dateformat; ?>" >         
+	         <label>Amount</label>
+	            <input type="text" name="amount" class="txt" id="amount" value="<?php echo Input::old('amount'); ?>"  autocomplete="off" />
+	            
+	          <label>Payment method</label>
+	            <select id='payment_method' name='payment_method' class="sel">
+					<option value="" selected="selected">Select</option>
+				    <option value="Bank transfer">Bank Transfer</option>
+		            <option value="Cheque">Cheque</option>
+		            <option value="Cash">Cash</option>
+		            <option value="Online">Online</option>
+			    </select>
+			    
+				<div class="cheque_section"> 
+				 <label>Cheque number</label>
+		            <input type="text" name="cheque_number" class="txt" id="cheque_number" value="<?php echo Input::old('cheque_number'); ?>"  autocomplete="off" />
+		        </div> 
+		        
+		        <div class="bank_transfer_section"> 
+				 <label>Bank Transfer Reference</label>
+		            <input type="text" name="bank_transfer_ref" class="txt" id="bank_transfer_ref" value="<?php echo Input::old('bank_transfer_ref'); ?>" autocomplete="off" />
+		        </div> 
+	         
+	            <input type="hidden" name="user_id" id="user_id" value="<?php echo Session::get('user_id'); ?>" />
+	            <input type="hidden" name="client_id" id="client_id" value="<?php echo $client->id; ?>" />
+	            <input type="hidden" name="tenantID" id="tenantID" value="<?php echo Session::get('tenantID'); ?>" />
+	            <br />
+	            <input type="submit" id="record_payment" class="gen_btn" name="record_payment" value="Record payment" />
+	         <?php else: ?>   
+	         	<p>This invoice has not been sent.</p><a class="btn btn_light" href="<?php echo URL::to('invoices/'.$invoice->tenant_invoice_id.'/send'); ?>">Send now</a> <a class="btn btn_light" href="<?php echo URL::to('invoices/'.$invoice->tenant_invoice_id.'/sent'); ?>">Mark as sent (Offline)</a>
+		 	<?php endif; ?>
+		 <?php endif; ?>
+		 
+		 <?php $dateformat ="d/m/Y";
+			// British dateformat
+			if($preferences->date_format == "dd/mm/yyyy"){ $dateformat ="d/m/Y"; }
+			
+			// America dateformat
+			if($preferences->date_format == "mm/dd/yyyy"){ $dateformat = "m/d/Y"; }	?>	
+        <input type="hidden" class="pref_dateformat" value="<?php echo $dateformat; ?>" >
+		 	
+	  <?php echo Form::close(); ?>
+
+	   </div><!-- END longbox -->
+  
+	   <div class="longbox-right">
+	  
+	   	<h3>Payment history &raquo; <span><?php echo $total_records; ?> record<?php echo (int)$total_records <= 1 ? "": "s"; ?></span</h3><br /><br />	   		
+	   	<table class="table">
+		<thead>
+			<th>Date</th>
+			<th>Amount</th>
+			<th class="displayNone">Method</th>
+			<th>Action</th>		
+		</thead>
+
+		<tbody>
+			<?php $row = 2; foreach($payments as $payment): ?>
+		    <?php if ($row % 2) {$colour = "light_g1";}else{$colour = "light_g2"; }; $row += 1; ?>
+			<tr class="<?php echo $colour; ?>">
+				<td><?php echo AppHelper::date_to_text($payment->created_at, $preferences->date_format); ?><span class="payment_refs">Ref: <?php echo $payment->cheque_number != NULL ? $payment->cheque_number : ""; ?>  <?php echo $payment->bank_transfer_ref != NULL ? $payment->bank_transfer_ref : ""; ?></span></td>
+				<td><?php echo AppHelper::dumCurrencyCode($invoice->currency_code).$payment->amount; ?> </td>
+				<td class="displayNone"><?php echo $payment->payment_method; ?></td>
+				<td>
+					<a class="button" href="<?php echo URL::to('payments/'.$invoice->tenant_invoice_id.'/'.$payment->id.'/send'); ?>"> <?php echo $payment->sent == 1 ? 'Re-send': 'Send'; ?> acknowledgement</a>
+					<a class="button" href="<?php echo URL::to('payments/'.$invoice->tenant_invoice_id.'/'.$payment->id.'/delete'); ?>"> Remove</a>					
+				</td>
+			</tr>
+			<?php endforeach; ?>
+		</tbody>
+	   </table>
+	   
+	    </div><!-- END longbox -->
+
+	</div><!-- END Add item-->
+	  
+			 
+	<?php $__env->stopSection(); ?>
+	
+
+	<?php $__env->startSection('footer'); ?>
+     
+     <script src="<?php echo URL::asset('assets/js/jquery.datetimepicker.js'); ?>"></script>		 
+ 
+		
+		<script>
+			$(document).ready(function(){
+				
+				
+			  if($('#appmenu').length > 0){
+  					$('.manage_all_menu').addClass('selected_group'); 		 
+			  		$('.menu_all_invoices').addClass('selected');		  		
+			  		$('.manage_all_menu ul').css({'display': 'block'});		   
+		       }
+				
+				$('#issuedate').datetimepicker({			 
+					lang:'en',
+					timepicker:false,
+					format: $('.pref_dateformat').val(),
+					formatDate:'Y/m/d',
+					closeOnDateSelect:true					  
+				}); 
+
+				$('.cheque_section').hide();
+				$('.bank_transfer_section').hide();
+				
+				$('#payment_method').on('change', function() {
+					
+				   if($(this).val() == "Cheque"){
+				   		
+				   		$('.cheque_section').fadeIn();
+				   		
+				   }else{
+				   	
+				   		$('.cheque_section').fadeOut();
+				   }
+				   
+				   
+				   if($(this).val() == "Bank transfer"){
+				   		
+				   		$('.bank_transfer_section').fadeIn();
+				   		
+				   }else{
+				   	
+				   		$('.bank_transfer_section').fadeOut();
+				   }
+				   
+				});
+				
+				
+				
+				$('input[type=submit]').click(function(){	
+				 
+					if($.trim($('#issuedate').val()) == ""){						
+						alert('Enter the date of payment');						
+						return false;
+					}
+					
+					if($.trim($('#amount').val()) == ""){						
+						alert('Enter the amount');						
+						return false;
+					}
+					
+					if($.trim($('#payment_method').val()) == ""){						
+						alert('Select the payment method');						
+						return false;
+					}
+					
+				});
+				
+			});
+			
+		</script>
+	 
+	<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

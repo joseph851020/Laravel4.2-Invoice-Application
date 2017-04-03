@@ -1,0 +1,14 @@
+ 
+	<?php $__env->startSection('content'); ?>
+	  
+	<p>Hi <?php echo $firstname; ?>, <p/>
+ 
+	<p>Your subscription payment was successful. You paid &#36;<?php echo $amount; ?> via <?php echo $payment_system; ?>. </p>
+	
+	<p>Date paid: <?php echo $date_paid; ?></p>
+ 
+ 
+    <p>Kind regards, <br />Sighted Sales Team</p>
+ 
+	<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.sendmail', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

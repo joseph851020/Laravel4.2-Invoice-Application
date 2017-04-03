@@ -1,0 +1,13 @@
+	<?php $__env->startSection('email_title'); ?>
+	 <h3> <?php echo $inv_email_subject; ?></h3>
+	<?php $__env->stopSection(); ?>
+
+	<?php $__env->startSection('content'); ?>
+	 <?php echo $inv_email_body; ?>
+
+	 
+	 <br /><br /><br />
+	 <small>Sent via <a href="http://www.sighted.com">sighted.com</a></small>
+	<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.sendinvoice', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

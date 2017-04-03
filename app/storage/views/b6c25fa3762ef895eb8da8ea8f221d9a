@@ -1,0 +1,47 @@
+ 
+	<?php $__env->startSection('content'); ?>
+	 
+	<div id="login_form">
+ 
+	<a href="http://www.sighted.com"><img src="<?php echo URL::asset('integritylogo.png'); ?>" alt="Sighted Invoice and Expense" style='width:160px;height:89px;'></a>
+	<p>Invoicing and expense tracking application</p>
+	
+	<h1>Log in</h1>
+	 
+		<?php echo Form::open(array('route' => 'login')); ?>
+
+		
+		 <!-- check for login errors flash var -->
+		 
+		<?php if(Session::get('flash_message')): ?>
+			<div class="flash success"><?php echo Session::get('flash_message'); ?></div>
+		<?php endif; ?>
+		
+		<?php if(Session::get('failed_flash_message')): ?>
+			<div class="flash error"><?php echo Session::get('failed_flash_message'); ?></div>
+		<?php endif; ?>
+	
+		
+		 <!-- username field -->
+		<p><?php echo Form::label('email', 'Email'); ?></p>
+		<p><?php echo Form::text('email'); ?></p>
+		<!-- password field -->
+		<p><?php echo Form::label('password', 'Password'); ?></p>
+		<p><?php echo Form::password('password'); ?></p>
+		<!-- submit button -->
+		<p><?php echo Form::submit('Login', array('class' => 'btn')); ?></p>
+
+	 <?php echo Form::close(); ?>
+
+	 
+	  
+	 <?php echo link_to_route('passwordresets', 'Forgot your password?', array(), array('class' => 'link')); ?> &nbsp;&nbsp;&nbsp; 
+	 <p>Don't have an account yet? <a class="link" href="<?php echo URL::to('signup'); ?>">Signup</a><p/> 
+	 <!--
+	 <a class="link" href="http://www.integrityinvoice.com">www.integrityinvoice.com</a>
+	 -->
+	 
+	</div>
+ 
+	<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

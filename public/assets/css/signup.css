@@ -1,0 +1,559 @@
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #333;
+    text-shadow: none;
+    color:#fff;
+}
+
+::selection {
+    background: #333;
+    text-shadow: none;
+    color:#fff;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   IIV styles
+   ========================================================================== */
+
+*{margin:0; padding:0;}
+ 
+
+html{background: #fff /* #E5E8EB url('../img/bg_pattern.png'); */}
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x:hidden;
+}
+
+
+.page_wrap{width:100%; overflow: hidden; }
+#page{
+	width:300px;
+	margin:20px auto;
+	background:#fff;
+	padding:30px;
+ 
+}
+
+a{text-decoration:none; font-size:13px; padding-top:8px; color:#5bd4bc;}
+a:hover{text-decoration:underline; color:#333;}
+ 
+p{ color: #222; font-size:14px; line-height: 22px;
+    margin: 10px 0; padding:0; font-family:Helvetica, Arial, sans-serif; }
+ 
+h1, h2, h3,h4, h5{font-family: 'Lato', sans-serif; color:#22c7a7; font-weight: 300;}
+
+h1{font-size:18px !important; line-height:24px; padding:0; margin:10px 0; color:#696969; }
+
+h1 span{padding:0 15px 0 0; display:block; font-size:15px; margin:0; padding:0;  }
+h1 a{text-decoration:none; color: #22c7a7;}
+h2{font-size:19px;}
+h3{font-size:20px; line-height:28px;}
+
+.mand{color:#ce3130; font-weight:bold;}
+
+.agree_text_wrap{font-size:0.7em !important; }
+
+  
+.signupbtn{clear:both; margin-top:30px !important; }
+
+.sgnform{ overflow: hidden;}
+.form_row{width:300px; margin: 0 20px 6px 0; } 
+ 
+input[type=text], input[type=password]{
+	border: 1px solid #CDCDCD;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) inset;
+    box-sizing: border-box;
+    clear: both;
+    color: #333333;
+    display: block;
+    float: none;
+    font-size: 15px;
+    line-height: 18px;
+    margin: 0 0 15px;
+    outline: 0 none;
+    padding: 7px 10px;
+    resize: none;
+    width: 100%;
+	}		
+		
+
+input[type=text]:focus, input[type=password]:focus{
+	  
+    -moz-transition: all 0.3s ease-in;  
+    -webkit-transition: all 0.3s ease-in; 
+    -o-transition: all 0.3s ease-in; 
+    transition: all 0.3s ease-in;    
+    outline: none;
+    border: 1px solid #909090;
+}
+
+ 
+ 
+footer .appLeft{width:260px; float:left; padding:10px 0 0 10px;}
+footer .appRight{width:60px; float:right;  padding:10px 10px 0 0;}
+
+.appLeft ul{overflow:hidden; margin:0; padding:0;}
+.appLeft ul li{list-style:none; float:left;}
+.appLeft ul li a{text-decoration:none; font-size:12px;}
+
+.appRight ul{overflow:hidden; margin:0; padding:0;}
+.appRight ul li{list-style:none; float:left; margin:0 0 0 4px;}
+.appRight p{text-decoration:none; font-size:10px; line-height:12px; margin:0; padding:0; }
+
+
+.fluid-section:before, .fluid-section:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.fluid-section:after {
+    clear: both;
+}
+.fluid-section:before, .fluid-section:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.fluid-section {
+    width: 100%;
+}
+
+
+a.darkbtn {
+	text-decoration:none;
+    background-color: #272C2F;
+    background-image: linear-gradient(to bottom, #272C2F, #272C2F);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #95A1AA;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border: 1px solid #020202 !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05) inset; 
+	padding:4px 14px;
+	margin:0;
+}
+
+.btn, .button, .gen_btn {
+    background: #22c7a7 !important;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: none;
+    color: #FFFFFF !important;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1;
+    margin-right: 10px;
+    padding: 0.9em 1.8em 0.8em;
+    text-shadow: none;
+    text-transform: uppercase;
+    text-decoration:none;
+    cursor: pointer;
+    display: inline-block;
+}
+ 
+.btn .primary_btn {
+    background:  #333;
+}
+
+.btn:hover, .button:hover, .gen_btn:hover {background: #343536 !important;
+
+ /* Firefox */
+    -moz-transition: all 0.4s ease-in;
+    /* WebKit */
+    -webkit-transition: all 0.4s ease-in;
+    /* Opera */
+    -o-transition: all 0.4s ease-in;
+    /* Standard */
+    transition: all 0.4s ease-in;
+    
+    outline: medium none;
+}
+ 
+
+#pagebody, footer, .page-panel{
+	 animation: fadein 1.4s;
+    -moz-animation: fadein 1.4s; /* Firefox */
+    -webkit-animation: fadein 1.4s; /* Safari and Chrome */
+    -o-animation: fadein 1.4s; /* Opera */
+}
+
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}​
+
+
+/* SIGNUP */
+#signupform{ margin:0 auto; background: #333; padding:20px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); } 
+#signupform label{display:block; margin:7px 0 0 0;}
+span.small{font-size:12px; font-weight:bold; display:block; color:#999;}
+ 
+ 
+#signupform p, #signupform label{font-size:13px; line-height:18px; color:#222; font-weight:300;}
+  
+#signupform label{font-weight:bold;}
+
+#iSM{width:280px;  margin:0 0 0 15px;}
+#iSM p{font-size:15px !important; margin:7px 0 7px 0 !important; text-align:left !important; }
+
+.password_ins{margin:20px 0 0 0; clear:both; }
+.msg_error{width: 95% !important;}
+
+/* Notification */
+.flash{
+         margin-bottom: 7px 0 18px 0;
+   		 padding: 8px 14px;
+	     max-width: 90%;
+	     border: 1px solid;
+	     color: #fff;
+	     font-size:12px;	    
+	     -webkit-animation: animate-bg 5s linear infinite;
+	     -moz-animation: animate-bg 5s linear infinite;
+}
+.info{
+	     background-color: #4ea5cd;
+	     border-color: #3b8eb5;
+	}
+	
+	.error{
+	    background-color: #fbe5ec;
+	    border-color: #f9d8e8;
+	    color: #db205d;
+	}
+	
+	.warning{
+	     background-color: #eaaf51;
+	     border-color: #d99a36;
+	}
+	
+	.success{
+	    background-color: #dffaf4;
+	    border-color: #bff6e1;
+	    color: #18a98a;
+	}
+
+.message h3{
+     margin: 0 0 5px 0;
+}
+
+.message p{
+     margin: 0;
+}
+
+
+.referral_code_section{margin:5px 0 0 0; overflow:hidden; clear:both;}
+p.referral_text{padding:15px 0 0 0 !important; display:block; clear:both;}
+.beta_notice{
+	 background-color: #ffe9c7;
+     border: 1px solid #f6dbb0 !important;     
+     margin-bottom: 7px 0 18px 0;
+	 padding: 2px 8px;
+     max-width: 90%;
+     border: 1px solid;
+     color: #333;
+     font-size:12px;	    
+     -webkit-animation: animate-bg 5s linear infinite;
+     -moz-animation: animate-bg 5s linear infinite;
+}
+
+@-webkit-keyframes animate-bg{
+    from {
+       background-position: 0 0;
+    }
+    to {
+       background-position: -80px 0;
+    }
+}
+
+@-moz-keyframes animate-bg{
+    from {
+       background-position: 0 0;
+    }
+    to {
+       background-position: -80px 0;
+    }
+}
+
+  
+ 
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

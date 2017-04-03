@@ -1,0 +1,15 @@
+<?php $__env->startSection('content'); ?>
+
+<p>Hi <?php echo $firstname; ?>, <p/>
+
+<p>Your account subscription has been extended to: <?php echo $to_date; ?>
+
+<br />
+Subscription level: <?php echo $subscription_level; ?>.</p>
+
+<p>If you have any questions please reply to this email.</p>
+
+<p>Kind regards, <br />Sighted Sales Team</p>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.sendmail', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

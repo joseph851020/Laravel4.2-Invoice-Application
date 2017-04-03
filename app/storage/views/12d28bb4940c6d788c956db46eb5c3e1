@@ -1,0 +1,40 @@
+	
+	<?php $__env->startSection('content'); ?>
+	<div id="login_form">
+	
+	<h1>Admin Login</h1>
+
+		<?php echo Form::open(array('route' => 'adminsuperlogin')); ?>
+
+		
+		 <!-- check for login errors flash var -->
+		 
+		<?php if(Session::get('flash_message')): ?>
+			<div class="flash error"><?php echo Session::get('flash_message'); ?></div>
+		<?php endif; ?>
+	
+		
+		 <!-- username field -->
+		<p><?php echo Form::label('email', 'Email'); ?></p>
+		<p><?php echo Form::text('email'); ?></p>		
+		<!-- password field -->
+		<p><?php echo Form::label('password', 'Password'); ?></p>
+		<p><?php echo Form::password('password'); ?></p>
+		
+		<p><?php /* Form::label('authcode', 'Auth Code') */ ?></p>
+		<p><?php /* Form::password('authcode') */ ?></p>
+		
+		<p><?php /* Form::label('pin', 'PIN') */ ?></p>
+		<p><?php /* Form::password('pin') */ ?></p>
+		
+		<!-- submit button -->
+		<p><?php echo Form::submit('Login', array('class' => 'btn')); ?></p>
+
+	 <?php echo Form::close(); ?>
+
+	 
+	 
+	</div>
+ 
+	<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,9 @@
+	<?php $__env->startSection('content'); ?>
+ 
+		<h1><a class="do_previous" href="<?php echo URL::to('dashboard'); ?>">&nbsp;<i class="fa fa-home">&nbsp;</i></a>&raquo; <?php echo HTML::linkRoute('services', 'Items', array(), array('class' => '')); ?> &raquo; <span><?php echo $service->item_name; ?></span></h1>
+	
+		<p>Price: <?php echo $service->unit_price;; ?> <br />
+		   Tax type: <?php echo $service->tax_type;; ?> <br />
+		</p>
+	<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

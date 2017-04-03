@@ -1,0 +1,7 @@
+<?php if($errors->has()): ?>
+   <div class="flash error">
+	<ul>
+		<?php echo $errors->first('company', '<li>:message</li>'); ?>		 
+	</ul>
+  </div>
+<?php endif; ?>  

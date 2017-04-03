@@ -1,0 +1,1 @@
+<p class="mandatory_message"><span class="mand">*</span> means mandatory field</p>

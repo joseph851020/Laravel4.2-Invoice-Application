@@ -1,0 +1,11 @@
+<?php if($errors->has()): ?>
+	<div class="flash error">
+	<ul>
+		<?php echo $errors->first('amount', '<li>:message</li>'); ?>
+
+		<?php echo $errors->first('created_at', '<li>:message</li>'); ?>			
+		<?php echo $errors->first('category_id', '<li>:message</li>'); ?>
+
+	</ul>
+	</div>
+<?php endif; ?>  

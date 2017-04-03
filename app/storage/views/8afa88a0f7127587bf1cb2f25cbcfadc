@@ -1,0 +1,81 @@
+ <div id="menu">
+            <nav>
+                <h2><i class="fa fa-bars"></i>App Menu</h2>
+                <ul>
+                	
+                	<li>
+                        <a href="<?php echo URL::to('admin/dashboard'); ?>"><i class="fa fa-home"></i>Dashboard</a>                        
+                    </li>           
+                	 
+                     
+                     <li>
+                        <a href="#"><i class="fa fa-tasks"></i>Accounts</a>
+                        <h2><i class="fa fa-tasks"></i>Accounts</h2>
+                        <ul>
+                            <li>
+                                <a href="<?php echo URL::to('admin/accounts'); ?>">All Accounts</a>
+                            </li>
+                
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#"><i class="fa fa-tasks"></i>Notifications</a>
+                        <h2><i class="fa fa-tasks"></i>Notifications</h2>
+                        <ul>
+                            <li>
+                                <a href="<?php echo URL::to('admin/notifications'); ?>">All Notifications</a>
+                            </li>                
+                        </ul>
+                    </li>
+                     
+                     <li>
+                        <a href="#"><i class="fa fa-bar-chart-o"></i>Reports</a>
+                        <h2><i class="fa fa-bar-chart-o"></i>Reports</h2>
+                        <ul>
+                            <li>
+                                <a href="<?php echo URL::to('admin/report'); ?>">Summary</a>
+                            </li>
+                            <!--li>
+                                <a href="<?php echo URL::to('reports/unpaid'); ?>">Freemium Accounts</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo URL::to('reports/profit_loss'); ?>">Premium Accounts</a>
+                            </li!-->  
+                                           
+                        </ul>
+                    </li>     
+                    
+                    <li>
+                        <a href="#"><i class="fa fa-user"></i>Super Users</a>
+                        <h2><i class="fa fa-user"></i>Super Users</h2>
+                        <ul>
+                            <li>
+                                <a href="<?php echo URL::to('users'); ?>">All Super Users</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo URL::to('users/create'); ?>">Add New Super User</a>
+                            </li>
+            
+                        </ul>
+                    </li>
+ 
+                    <li>
+                        <a href="#"><i class="fa fa-cog"></i>Admin Settings</a>
+                        <h2><i class="fa fa-cog fa-spin"></i>Admin Settings</h2>
+                        <ul>
+                        	<li>
+                                <a href="<?php echo URL::to('company'); ?>">Integrity Profile</a>
+                            </li>
+                            
+                            <li>
+                                <a href="<?php echo URL::to('settings'); ?>">General Preferences</a>
+                            </li>                            
+              
+                        </ul>
+                    </li> 
+               
+            </nav>
+ 
+        </div>  <!-- End menu -->
+        

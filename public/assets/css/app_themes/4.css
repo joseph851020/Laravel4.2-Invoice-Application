@@ -1,0 +1,96 @@
+/* UNAMED THEME */
+
+::-moz-selection {
+    background: #0081bd;
+    text-shadow: none;
+    color: #fff !important;
+}
+
+::selection {
+    background: #0081bd;
+    text-shadow: none;
+    color: #fff !important;
+}
+
+
+h1 a,  .do_previous, .alink, .dash_icon {color:#0081bd !important}
+ 
+a.btn-danger {
+    background-color: #0081bd !important;
+    border-color: #0081bd !important; 
+}
+
+#invoicecontainer .delete, .item_selector_icon{color:#0081bd !important}
+
+.item_selector select { background: #0081bd !important; }
+
+
+a#cancelInvoice, .cancelBtn{background:#ddd !important; color:#888 !important;}
+a#cancelInvoice:hover, .cancelBtn:hover{background:#eee !important;}
+
+
+/* BUTTONS */
+
+a.darkbtn {
+	text-decoration:none;
+    background-color: #272C2F;
+    background-image: linear-gradient(to bottom, #272C2F, #272C2F);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #95A1AA;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border: 1px solid #020202 !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05) inset; 
+	padding:4px 14px;
+	margin:0;
+}
+
+.btn, .button, .gen_btn {
+    background: #0081bd !important;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: none;
+    color: #FFFFFF !important;
+    font-size: 0.9em;   
+    line-height: 1;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 0.8em 0.9em;
+    text-shadow: none;
+    text-transform:capitalize;
+    text-decoration:none;
+    cursor: pointer;
+    display: inline-block;     
+    text-align: center;   
+    vertical-align: top;
+}
+
+.page-panel .btn {
+    margin: 20px 0;
+    padding: 0.5em 0.em 0.5em;
+}
+.btn .primary_btn {
+    background:  #333;
+}
+
+.btn:hover, .button:hover, .gen_btn:hover {background: #343536 !important;
+
+ /* Firefox */
+    -moz-transition: all 0.4s ease-in;
+    /* WebKit */
+    -webkit-transition: all 0.4s ease-in;
+    /* Opera */
+    -o-transition: all 0.4s ease-in;
+    /* Standard */
+    transition: all 0.4s ease-in;
+    
+    outline: medium none;
+}
+
+.btn_light{
+	padding: 0.6em 0.7em !important;
+	font-size: 0.8em !important;
+	margin-right: 2px !important;
+}
+
+.simple_search .search_submit {background: #0081bd !important; color:#fff; height:20px; width:28px; border:none; margin:0; text-align:center; }

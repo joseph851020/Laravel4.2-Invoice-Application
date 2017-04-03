@@ -1,0 +1,24 @@
+<?php $__env->startSection('title'); ?>
+    <?php echo $__env->make('error-emailer::subject', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('emailbody'); ?>
+    <table cellpadding="0" cellspacing="0" border="0" align="left" width="100%">
+        <tr>
+            <td valign="top">
+                <?php echo $trace; ?>
+
+
+                <h2>PHP environment:</h2>
+                <pre style="max-width:600px;">
+$_SERVER = <?php echo print_r($_SERVER, true); ?>
+
+
+$_REQUEST = <?php echo print_r($_REQUEST, true); ?>
+
+                </pre>
+            </td>
+        </tr>
+    </table>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('error-emailer::layouts.common', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

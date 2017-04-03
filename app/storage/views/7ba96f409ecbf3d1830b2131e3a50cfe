@@ -1,0 +1,11 @@
+	<?php $__env->startSection('email_title'); ?>
+	 <h3>New Signup! Yipee...</h3>
+	<?php $__env->stopSection(); ?>
+
+	<?php $__env->startSection('content'); ?>
+	  
+	<?php echo $firstname; ?> has signed up for an account <br /> Follow up at: <?php echo $email; ?> <br /><br /> Signup Manager @sighted  
+	
+	<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.sendmail', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

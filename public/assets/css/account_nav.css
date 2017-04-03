@@ -1,0 +1,96 @@
+#profile-nav {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px; 
+  z-index: 19999; 
+ }
+#profile-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  float: right;
+  background: #1B1D24;  
+}
+
+#profile-nav li {
+  float: left;          
+}
+
+#profile-nav #login-trigger,
+#profile-nav #signup a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  height: 20px;
+  line-height: 25px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #777;
+  font-family: 'Lato', sans-serif;
+}
+
+#profile-nav #signup a {
+  -moz-border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+
+#profile-nav #login-trigger {
+  -moz-border-radius: 3px 0 0 3px;
+  -webkit-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+
+ 
+
+#profile-nav #login-content {
+  display: none;
+  position: fixed;
+  top: 24px;
+  right: 0;
+  z-index: 10004;    
+  background: #1B1D24;
+  padding: 15px;  
+}
+
+#profile-nav li #login-content {
+  right: 0;
+  width: 110px;  
+  -webkit-border-bottom-right-radius: 6px;
+-webkit-border-bottom-left-radius: 6px;
+-moz-border-radius-bottomright: 6px;
+-moz-border-radius-bottomleft: 6px;
+border-bottom-right-radius: 6px;
+border-bottom-left-radius: 6px;
+}
+ 
+
+#login #actions {
+  margin: 10px 0 0 0;
+}
+
+
+#login-content ul{
+	margin:0;
+	padding:0;
+}
+
+#login-content ul li{
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	font-size:12px;
+	margin:1px 0;
+	border-top:1px solid #333;
+	width:100%;
+	text-align:left !important;
+}
+#login-content ul li a{
+	display:block;
+}
+
+#login-content ul li a:hover
+	color:#fff !important;
+}
+ 
+ 

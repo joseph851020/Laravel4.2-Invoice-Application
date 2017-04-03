@@ -1,0 +1,18 @@
+<?php if($errors->has()): ?>
+<div class="flash error">
+	<ul>
+		<?php echo $errors->first('firstname', '<li>:message</li>'); ?>
+
+		<?php echo $errors->first('lastname', '<li>:message</li>'); ?>
+
+		<?php echo $errors->first('username', '<li>:message</li>'); ?>
+
+		<?php echo $errors->first('email', '<li>:message</li>'); ?>
+
+		<?php echo $errors->first('password', '<li>:message</li>'); ?>
+
+		<?php echo $errors->first('confirm_password', '<li>:message</li>'); ?>
+
+	</ul>
+</div>
+<?php endif; ?>  

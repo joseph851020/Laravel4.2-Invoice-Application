@@ -1,0 +1,12 @@
+<?php if($errors->has()): ?>
+ <div class="flash error">
+	<ul>
+		<?php echo $errors->first('item_name', '<li>:message</li>'); ?>
+
+		<?php echo $errors->first('item_type', '<li>:message</li>'); ?>
+
+		<?php echo $errors->first('unit_price', '<li>:message</li>'); ?>
+
+	</ul>
+  </div>
+<?php endif; ?>  

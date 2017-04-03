@@ -1,0 +1,10 @@
+<?php if($errors->has()): ?>
+<div class="flash error">
+	<ul> 
+		<?php echo $errors->first('password', '<li>:message</li>'); ?>
+
+		<?php echo $errors->first('confirm_password', '<li>:message</li>'); ?>
+
+	</ul>
+</div>
+<?php endif; ?>  
